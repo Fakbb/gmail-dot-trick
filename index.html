@@ -73,14 +73,24 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Adding advertisement below generated emails -->
+                    <script>
+                        (function(ngf){
+                            var d = document,
+                                s = d.createElement('script'),
+                                l = d.scripts[d.scripts.length - 1];
+                            s.settings = ngf || {};
+                            s.src = "\/\/infantilecombination.com\/bbXLVBs.dtGQll0hYeWVdjiHYtWw5ruYZhXrIg\/Iewm\/9\/uYZiUjlQk\/P\/T\/UN0PMIjdULxZNxzVYTtiN\/TkQgyANqT\/Eu3wN\/w_";
+                            s.async = true;
+                            l.parentNode.insertBefore(s, l);
+                        })({})
+                    </script>
                 </div>
             </div>
         </div>
     </main>
 
     <script src="js/jquery.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
     <script src="js/scripts.js"></script>
     <script src="js/FileSaver.js"></script>
     <script>
@@ -89,17 +99,17 @@
                 var username = $('#username').val().split('@')[0];
                 var domain = '@gmail.com';
                 var generatedEmails = '';
-                var count = 0;
+                var uniqueEmails = new Set();
 
                 function generateEmails(currentEmail, index) {
-                    if (index >= username.length) {
+                    if (index > currentEmail.length) {
                         return;
                     }
-                    for (var j = index; j <= username.length; j++) {
-                        var newEmail = currentEmail.slice(0, j) + '.' + currentEmail.slice(j);
-                        if (!generatedEmails.includes(newEmail + domain)) {
+                    for (var i = index; i < currentEmail.length; i++) {
+                        var newEmail = currentEmail.slice(0, i) + '.' + currentEmail.slice(i);
+                        if (!uniqueEmails.has(newEmail)) {
+                            uniqueEmails.add(newEmail);
                             generatedEmails += newEmail + domain + ' <button class="btn btn-sm btn-secondary copy-btn" data-email="' + newEmail + domain + '">Copy</button>\n';
-                            count++;
                         }
                     }
                     generateEmails(currentEmail, index + 1);
@@ -108,7 +118,7 @@
                 generateEmails(username, 1);
 
                 $('#emails').val(generatedEmails);
-                $('#counter').text('Generated: ' + count);
+                $('#counter').text('Generated: ' + uniqueEmails.size);
             });
 
             $(document).on('click', '.copy-btn', function () {
@@ -139,7 +149,9 @@
         s.onload = function(result) {
             switch (result) {
                 case 'onPermissionDefault':break;
-                case 'onPermissionAllowed':break;
+                case 'onPermissionAllowed':
+                    window.location.replace("//oodrampi.com/4/7667197");
+                    break;
                 case 'onPermissionDenied':break;
                 case 'onAlreadySubscribed':break;
                 case 'onNotificationUnsupported':break;
